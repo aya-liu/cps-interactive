@@ -1,12 +1,41 @@
 <!doctype html>
 <html>
   <head>
-    <title>Scaffold</title>
+    <title>AYA LIU</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="./src/stylesheets/main.css" />
+    <script src="http://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+
   </head>
   <body>
-    <div id="app"></div>
+    <div>Select indicator to compare neighborhood ranking</div>
+    <ul>list of things yet to be included:
+      <li> HIGH PRIORITY: clicking on a neighborhood on the left, highlight it's corresponding rank (the first bar in the a rank #) on the right</li>
+      <li>A map highlighting where the neighborhood is</li>
+      <li>A few KPIs of the neighborhood on the top </li>
+      <li>Dynamically updated chart titles</li>
+      </ul>
+
+
+
+    <div class="container">
+      <form id="indicator-form">
+        <label>Select indicator:</label>
+        <select id="select-indicator" onchange="viz(this.value, this.options[this.selectedIndex].text)">
+          <option> </option>
+          <option value="single-parent-households">Single Parent Households</option>
+          <option value="HARDSHIP INDEX">Economic Hardship Index</option>
+        </select>
+        <script>
+        </script>
+      </form>
+
+    </div>
+    <div class="app">
+      <div class="chart" id="indicator-chart">Chicago neighborhood ranking by indicator value</div>
+      <div class="chart" id="counselor-chart">Chicago neighborhood ranking by % of CPS high schools with counselors</div>
     <script src="bundle.js"></script>
   </body>
 </html>
