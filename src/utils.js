@@ -1,6 +1,6 @@
 // example of how to export functions
 // this particular util only doubles a value so it shouldn't be too useful
-
+import * as d3 from "d3";
 
 // load data
 var community_json = require("../data/community_and_schools.json");
