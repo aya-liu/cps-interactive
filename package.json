@@ -8,6 +8,7 @@
   "engines": {
     "node": ">=9.0.0"
   },
+  "homepage" : "http://aya-liu.github.io/cps-interactive",
   "devDependencies": {
     "babel-core": "^6.21.0",
     "babel-eslint": "^7.1.1",
