@@ -3,6 +3,7 @@
 // (I tend to think it's best to use screaming snake case for imported json)
 // const domReady = require('domready');
 //import {choropleth} from 'map';
+import * as d3 from 'd3';
 import {ind_chart, counsel_chart} from './utils.js';
 
 //var counsel_val = "pct_counsel";
