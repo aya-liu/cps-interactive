@@ -1,17 +1,42 @@
-* {	
-
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
+* {
+    font-family: Futura,Trebuchet MS,Arial,sans-serif; 
+    font-size: 14px;
 }
 
 a {
   cursor: pointer;
 }
 
+.app text{
+  font-size: 12px
+
+}
+
+.main-title {
+  color: #3D3D3D;
+  font-size: 24px;
+  font-weight: bold;
+  width: 700px;
+}
+
+.description {
+  width: 700px;
+}
+
+.instruction {
+  color: #34a1c7;
+}
 
 #indicator-form {
   padding-top: 10px;
   padding-bottom: 30px;
+}
+
+.app-title {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .app {
@@ -36,6 +61,33 @@ a {
 .bar:hover{
 	fill: #E2856E;
 	transition: fill 0.15s;
+}
+
+.bar.counselor-bar {
+  fill: gray;
+}
+
+.bar.counselor-bar:hover{
+  fill: #E2856E;
+  transition: fill 0.15s;
+}
+
+.highlighted{
+  fill: #E2856E !important;
+  fill-opacity: 1;
+}
+
+.unhighlighted{
+  fill-opacity: 0.7;
+}
+
+#rank-text{
+  font-size: 20px;
+}
+
+#chart-title{
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .toolTip {
