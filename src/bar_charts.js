@@ -1,17 +1,20 @@
-// example of how to export functions
-// this particular util only doubles a value so it shouldn't be too useful
+// for neighborhood ranking bar charts
 import * as d3 from 'd3'
 
 // load data
 var community_json = require("../data/community_and_schools.json");
 var raw_data = JSON.parse(community_json)
 raw_data = raw_data.filter(d => d.avg_access != 'No Schools');
+
+// constants
 var format_pct = d3.format(".1f");
 var format_cnt = d3.format(".0f");
 var tooltip_dur = 450
-var margin = {top: 50, right: 90, bottom: 50, left: 150};
+var margin = {top: 80, right: 90, bottom: 50, left: 155};
 var width = 600 - margin.left - margin.right;
 var height = 1000 - margin.top - margin.bottom;
+
+
 
 export function counsel_chart() {
   console.log("counsel")
@@ -34,7 +37,7 @@ export function counsel_chart() {
 
   var xScale = d3.scaleLinear()
     .range([0, width])
-    .domain([0, d3.max(data.map(function (d) { return Number(d[value])  ; }))]);
+    .domain([0, d3.max(data.map(function (d) {return Number(d[value]);}))]);
 
   var yScale = d3.scaleBand()
     .range([height, 0])
@@ -76,8 +79,16 @@ export function counsel_chart() {
   svg.append("text")
     .attr("id", "chart-title")
     .attr("x", -110)
-    .attr("y", -35)
+    .attr("y", -65)
     .text('Number of Students per CPS High School Counselor')
+
+  // set up description
+  svg.append("text")
+    .attr("id", "chart-desc")
+    .attr("x", -110)
+    .attr("y", -45)
+    .text("Total student population divided by the total number of \
+     full-time CPS high school counselors")
 
   // draw bars
   svg.selectAll(".bar")
@@ -133,6 +144,7 @@ export function ind_chart(value, text) {
   d3.select("#indicator-svg").remove()
 
   var data = rank(raw_data, value)
+  var desc_text = "haha"
 
   // draw chart
   var svg = d3.select("#indicator-chart")
@@ -188,8 +200,15 @@ export function ind_chart(value, text) {
   svg.append("text")
     .attr("id", "chart-title")
     .attr("x", -110)
-    .attr("y", -35)
-    .text(text)    
+    .attr("y", -65)
+    .text(text)
+
+  // set up description
+  svg.append("text")
+    .attr("id", "chart-desc")
+    .attr("x", -110)
+    .attr("y", -45)
+    .text(desc_text)
 
   // draw bars
   svg.selectAll(".bar")

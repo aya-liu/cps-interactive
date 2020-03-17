@@ -8,36 +8,49 @@
     <link rel="stylesheet" href="./src/stylesheets/main.css" />
   </head>
   <body>
-    <div class="main-title">Are Public High School Counselors Available in Your Community Area? <span style="color: #c9c9c9; font-size: 24px">Chicago, IL</span></div> 
-    
-    <div class="description">Compare Chicago community areas' rankings by <i>neighborhood indicators and rankings</i> by <i>counselor availability</i> (number of students shared by one counselor in the whole community area) 
-    <p class="instruction"> Click on any neighborhood bar to compare. Click again to deselect. </p>
-    <ul>list of things yet to be included (high to low priority):
-      <li>A short explanation of each indicator when indicator is selected</li>
-      <li>A few KPIs of the neighborhood on the top</li>
-      <li>A map highlighting where the neighborhood is</li>
-      </ul>
-    </div>
+    <div class="container" id="outer">
+      <div class="container" id="left">
+        <div class="main-title">Are Public High School Counselors Available in Your Community Area?</div> 
+        
+        <div class="description">Compare Chicago community areas' rankings by <i>neighborhood indicators and rankings</i> by <i>counselor availability</i> (number of students shared by one counselor in the whole community area)</div>
+
+        <form id="indicator-form">
+          <label>Select indicator to start:</label>
+          <select id="select-indicator" onchange="viz(this.value, this.options[this.selectedIndex].text)">
+            <option value="single-parent-households">Single Parent Households (%)</option>
+            <option value="limited-english-proficiency"> Households with Limited English Proficiency (%)</option>
+            <option value="PERCENT OF HOUSING CROWDED">Crowded housing (%)
+            </option>
+            <option value="PERCENT HOUSEHOLDS BELOW POVERTY">Poverty (%)</option>
+            <option value="PERCENT AGED 16+ UNEMPLOYED">Unemployment (%) </option>
+            <option value="PERCENT AGED UNDER 18 OR OVER 64">Education: Without High School Diploma (%) 
+            <option value="PER CAPITA INCOME ">Per Capita Income Level</option>
+            <option value="HARDSHIP INDEX">violent-crime</option>
+          </select>
+          <script>
+          </script>
+        </form>
+
+        <p class="instruction"> Click on any neighborhood bar to compare. Click again to deselect. </p>
+        <ul>list of things yet to be included (high to low priority):
+          <li>A short explanation of each indicator when indicator is selected</li>
+          <li>A few KPIs of the neighborhood on the top</li>
+          <li>A map highlighting where the neighborhood is</li>
+          </ul>
+
+        <div class="container" id="map">
+        </div>
 
 
+        <p>Data source: 
+          <li><a href='https://cps.edu/About_CPS/Financial_information/Pages/EmployeePositionFiles.aspx'>CPS Employee Roster (2019 Year End)</a>,
+          <li><a href='https://data.cityofchicago.org/Education/Chicago-Public-Schools-School-Profile-Information-/kh4r-387c'>CPS School Profile Information SY1819 </a>,
+          <li><a href='https://www.chicagohealthatlas.org/indicators'>Chicago Health Atlas</a>
+        <p>Made by <a href='http://github.com/aya-liu'>Aya Liu</a></p>
+      </div>
 
-    <div class="container">
-      <form id="indicator-form">
-        <label>Select indicator to start:</label>
-        <select id="select-indicator" onchange="viz(this.value, this.options[this.selectedIndex].text)">
-          <option> </option>
-          <option value="single-parent-households">Single Parent Households</option>
-          <option value="PERCENT OF HOUSING CROWDED">Crowded housing (%)
-          </option>
-          <option value="PERCENT HOUSEHOLDS BELOW POVERTY">Poverty (%)</option>
-          <option value="PERCENT AGED 16+ UNEMPLOYED">Unemployment (%) </option>
-          <option value="PERCENT AGED UNDER 18 OR OVER 64">Education: Without High School Diploma (%) 
-          <option value="PER CAPITA INCOME ">Per Capita Income Level</option>
-          <option value="HARDSHIP INDEX">Economic Hardship Index</option>
-        </select>
-        <script>
-        </script>
-      </form>
+
+    <div class="container" id="right">
       <div class="app-title">Chicago Neighborhoods Ranked by...</div>
       <div class="app">
         <div class="chart" id="indicator-chart"></div>
@@ -45,9 +58,8 @@
       </div>
     </div>
     
+    </div>
     <div class='footer'>
-      <span>Data source: CPS school data, Chicago Health Atlas</span><br>
-      <span>Made by <a href='http://github.com/aya-liu'>Aya Liu</a></span>
     </div>
 
     <script src="bundle.js"></script>
