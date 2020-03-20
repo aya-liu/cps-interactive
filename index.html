@@ -12,46 +12,64 @@
       <div class="container" id="left">
         <div class="main-title">Are Public High School Counselors Available in Your Community Area?</div> 
         
-        <div class="description">Compare Chicago community areas' rankings by <i>neighborhood indicators and rankings</i> by <i>counselor availability</i> (number of students shared by one counselor in the whole community area)</div>
+        <div class="web-desc">Compare rankings of Chicago community areas in <span style="color:#8596ab">community vulnerablity</span> and <span style="color:#82A7A6"> public high school counselor availability</span>: Lower ranking indicates higher need and/or fewer resources</div>
 
+        <h1 id="get-started">Step 1: Select community vulnerability indicator</h1>
         <form id="indicator-form">
-          <label>Select indicator to start:</label>
+          
           <select id="select-indicator" onchange="viz(this.value, this.options[this.selectedIndex].text)">
             <option value="single-parent-households">Single Parent Households (%)</option>
-            <option value="limited-english-proficiency"> Households with Limited English Proficiency (%)</option>
+            <option value="limited-english-proficiency"> Limited English Proficiency (%)</option>
             <option value="PERCENT OF HOUSING CROWDED">Crowded housing (%)
             </option>
             <option value="PERCENT HOUSEHOLDS BELOW POVERTY">Poverty (%)</option>
             <option value="PERCENT AGED 16+ UNEMPLOYED">Unemployment (%) </option>
             <option value="PERCENT AGED UNDER 18 OR OVER 64">Education: Without High School Diploma (%) 
             <option value="PER CAPITA INCOME ">Per Capita Income Level</option>
-            <option value="HARDSHIP INDEX">violent-crime</option>
+            <option value="violent-crime">Violent Crime Rate</option>
           </select>
           <script>
           </script>
         </form>
 
-        <p class="instruction"> Click on any neighborhood bar to compare. Click again to deselect. </p>
-        <ul>list of things yet to be included (high to low priority):
-          <li>A short explanation of each indicator when indicator is selected</li>
-          <li>A few KPIs of the neighborhood on the top</li>
-          <li>A map highlighting where the neighborhood is</li>
-          </ul>
+        <p class="indicator-desc">
+          <span id="var-name"></span>
+          <span id="long-desc"></span>
+        </p>
+        <p class="counselor-desc">
+          <span id="counselor-var-name">CPS High School Counselor Availability: </span>
+          <span id="counselor-long-desc">Number of students per CPS high school counselor, calculated by dividing the total student population divided by the number of full-time CPS high school counselors in the community area.</span>
+        </p>
+        <br>
+        <h1>Step 2: Click on the map or any bar to show ranking of a community area. Click again to reset.</h1> 
 
-        <div class="container" id="map">
+        <div class="container" id="map-container">
+          <h1 id="map-title">Chicago Community Areas</h1>
+          <h2></h2>
         </div>
 
+        <h1 id="about-data">About the Data</h1>
+          <li> Community areas excluded in the rankings because they do not have CPS high schools: Beverly, Bridgeport, Burnside, Calumet Heights, Clearing, Forest Glen, Fuller Park, Hegewisch, Hyde Park, Jefferson Park, Mckinley Park, Montclare, Oakland, South Deering</li>
+          <li> Community areas with no full-time counselors at any CPS high school and therefore ranked at the bottom for counselor availability: Auburn Gresham, Avondale, Chicago Lawn, Edison Park, West Garfield Park, West Pullman
+        </p>
 
-        <p>Data source: 
-          <li><a href='https://cps.edu/About_CPS/Financial_information/Pages/EmployeePositionFiles.aspx'>CPS Employee Roster (2019 Year End)</a>,
-          <li><a href='https://data.cityofchicago.org/Education/Chicago-Public-Schools-School-Profile-Information-/kh4r-387c'>CPS School Profile Information SY1819 </a>,
-          <li><a href='https://www.chicagohealthatlas.org/indicators'>Chicago Health Atlas</a>
-        <p>Made by <a href='http://github.com/aya-liu'>Aya Liu</a></p>
+        <p id="data-source">Data sources: </p>
+          <li><a class="source-url" href='https://cps.edu/About_CPS/Financial_information/Pages/EmployeePositionFiles.aspx'>CPS Employee Roster (2019 Year End)</a></li>
+          <li><a class="source-url" href='https://data.cityofchicago.org/Education/Chicago-Public-Schools-School-Profile-Information-/kh4r-387c'>CPS School Profile Information (School Year 2018-2019) </a></li>
+          <li><a class="source-url" href='https://www.chicagohealthatlas.org/indicators'>Chicago Health Atlas (2018) </a></li>
+          <li><a class="source-url" href='https://data.cityofchicago.org/Health-Human-Services/Census-Data-Selected-socioeconomic-indicators-in-C/kn9c-c2s2'>Selected socioeconomic indicators in Chicago (2008–2012) </a></li>
+        </p>
+
+        <p id="author">Made by <a href='http://github.com/aya-liu'>Aya Liu</a>  |   <a href='http://github.com/aya-liu/cps-interactive'>Code</a></p>
+        
+
       </div>
 
 
     <div class="container" id="right">
-      <div class="app-title">Chicago Neighborhoods Ranked by...</div>
+      <div class="app-title">
+        <span id="clicked-area"></span>
+        <span id='ranked-by'> Ranked by...</span></div>
       <div class="app">
         <div class="chart" id="indicator-chart"></div>
         <div class="chart" id="counselor-chart"></div>
@@ -59,9 +77,6 @@
     </div>
     
     </div>
-    <div class='footer'>
-    </div>
-
     <script src="bundle.js"></script>
 
   </body>

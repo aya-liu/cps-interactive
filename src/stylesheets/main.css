@@ -18,6 +18,7 @@ a {
 }
 
 .container#left {
+  background: #f7f5f5;
   width: 430px;
   padding: 20px;
   padding-right: 40px;
@@ -27,36 +28,116 @@ a {
   width: 1200px;
   padding: 20px;
 }
-.app text{
-  font-size: 13px
 
+.container#map-container {
+  width: 400px;
 }
 
+
+/* descriptions */
 .main-title {
-  color: #827179;
   font-size: 24px;
   font-weight: bold;
+  color: #43464B;
 
 }
 
-.description {
-  margin-top: 15px
+.web-desc {
+  padding-top: 10px;
+}
+
+.web-desc span {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+p.indicator-desc {
+  min-height: 58px;
+}
+.indicator-desc span {
+  color: #8596ab;
+  font-size: 13px;
+}
+
+.counselor-desc span {
+  color: #82A7A6;
+  font-size: 13px;
+}
+
+#var-name, #counselor-var-name {
+  font-weight: bold;
+}
+
+#get-started {
+  margin-top: 30px
+}
+h1 {  
+    color: #43464B; 
+  }
+
+li, .source-url{
+  font-size: 12px;
+  font-weight: lighter;
+  padding:2px;
+}
+
+li {
+  color: #43464B;;
+}
+
+#data-source {
+  font-size: 12px;
+  font-style: italic;
+  color: #43464B;
+}
+
+#about-data {
+  font-weight: bold;
+  color: #43464B;
 
 }
 
-.instruction {
-  color: #34a1c7;
+#author, #author a {
+  font-size:12px;
+  font-style: normal;
+  padding-top: 10px
 }
 
-#indicator-form {
-  padding-top: 30px;
+/* map */
+h1#map-title, h2 {
+  position: absolute;
+}
+
+h1#map-title {
+  color: darkgray;
+}
+
+h2 {
+  color: #E2856E;
+  margin-top: 30px;;
+}
+
+.area {
+  fill: lightgray;
+}
+
+
+/* app */
+.app text{
+  font-size: 13px
 }
 
 .app-title {
+   margin-left: 43px;
+   margin-bottom: 8px;
+}
+.app-title span {
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 20px;
-  margin-left: 39px
+}
+
+.app-title #clicked-area {
+   color: #E2856E;
 }
 
 .app {
@@ -75,7 +156,7 @@ a {
   opacity: 0.7;}
 
 .bar {
-	fill: #82A7A6;
+	fill: #8596ab;
 }
 
 .bar:hover{
@@ -84,7 +165,7 @@ a {
 }
 
 .bar.counselor-bar {
-  fill: #827179;
+  fill: #82A7A6;
 }
 
 .bar.counselor-bar:hover{
@@ -94,15 +175,22 @@ a {
 
 .highlighted{
   fill: #E2856E !important;
-  fill-opacity: 1;
+  fill-opacity: 1 !important;
 }
 
 .unhighlighted{
   fill-opacity: 0.7;
 }
 
-#rank-text{
+
+#ind-rank-text {
   font-size: 20px;
+  fill: #8596ab;
+}
+
+#counsel-rank-text {
+  font-size: 20px;
+  fill: #82A7A6;
 }
 
 #chart-title {
@@ -111,14 +199,14 @@ a {
 }
 
 #chart-desc {
-  font-size: 11px
+  font-size: 12px
 }
 
 .toolTip {
   position: absolute;
   pointer-events: none;
   display: none;
-  min-width: 50px;
+  min-width: 250px;
   height: auto;
   background: none repeat scroll 0 0 #ffffff;
   padding: 9px 14px 6px 14px;
@@ -141,8 +229,6 @@ a {
   left: 35%;
   margin-left: -12px;
 }  
-
-
 
 .toolTip span {
 	font-weight: 500;
