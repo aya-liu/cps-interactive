@@ -23,7 +23,8 @@ function viz(value, text){
 	// clear canvas
   d3.select("svg.map").remove()
   d3.select("#counselor-svg").remove()
-  
+  d3.select("#indicator-svg").remove()
+
   // make charts
   ind_chart(value, text, data);
   counsel_chart(data, no_counselor);
