@@ -1,25 +1,20 @@
 // compile
 import * as d3 from 'd3';
-import {ind_chart, counsel_chart, rank} from './bar_charts.js';
+import {ind_chart,counsel_chart,sort,rank} from './bar_charts.js';
 import {map} from './map.js'
 
 /// initial bar charts
 var init_val = 'single-parent-households'
 var init_text = 'Single Parent Households (%)'
 viz(init_val, init_text)
-//style="color:#8596ab; font-weight: bold"
-// <span style="color:#82A7A6">
 
 function viz(value, text){
-
-
 	// load data
 	var community_json = require("../data/community_and_schools.json");
 	var raw_data = JSON.parse(community_json).filter(d => d.avg_access !== 'No Schools');
   
   // rank data
-  var data = rank(raw_data, value)
-  data = rank(data, 'avg_access')
+  var data = get_ranks(raw_data, value)
 
 	// special area slugs
 	var no_counselor = JSON.parse(community_json).filter(d => d.avg_access === 1600).map(d => d.slug);
@@ -36,6 +31,11 @@ function viz(value, text){
 
 }
 
-
+function get_ranks(raw_data, value){
+    var data = sort(raw_data, value)
+    data = rank(data, value)
+    data = sort(data, 'avg_access')
+    data = rank(data, 'avg_access')
+    return data
+}
 window.viz = viz;
-window.map = map;

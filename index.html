@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>AYA LIU: Visualize CPS Counselor Availability</title>
+    <title>CPS High School Counselor Availability - Aya Liu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -14,7 +14,7 @@
         
         <div class="web-desc">Compare rankings of Chicago community areas in <span style="color:#8596ab">community vulnerablity</span> and <span style="color:#82A7A6"> public high school counselor availability</span>: Lower ranking indicates higher need and/or fewer resources</div>
 
-        <h1 id="get-started">Step 1: Select community vulnerability indicator</h1>
+        <h1 id="step1">Step 1: Select community vulnerability indicator</h1>
         <form id="indicator-form">
           
           <select id="select-indicator" onchange="viz(this.value, this.options[this.selectedIndex].text)">
@@ -40,8 +40,7 @@
           <span id="counselor-var-name">CPS High School Counselor Availability: </span>
           <span id="counselor-long-desc">Number of students per CPS high school counselor, calculated by dividing the total student population divided by the number of full-time CPS high school counselors in the community area.</span>
         </p>
-        <br>
-        <h1>Step 2: Click on the map or any bar to show ranking of a community area. Click again to reset.</h1> 
+        <h1 id='step2'>Step 2: Click on the map or any bar to show ranking of a community area. Click again to reset.</h1> 
 
         <div class="container" id="map-container">
           <h1 id="map-title">Chicago Community Areas</h1>

@@ -1,15 +1,7 @@
 // for neighborhood ranking bar charts
 import * as d3 from 'd3'
 
-/*
-// load data
-var community_json = require("../data/community_and_schools.json");
-var raw_data = JSON.parse(community_json).filter(d => d.avg_access !== 'No Schools');
 
-// special area slugs
-var no_counselor = JSON.parse(community_json).filter(d => d.avg_access === 1600).map(d => d.slug);
-var no_school = JSON.parse(community_json).filter(d => d.avg_access === 'No Schools').map(d => d.slug);
-*/
 // constants
 var format_pct = d3.format(".1f");
 var format_cnt = d3.format(",.0f");
@@ -112,7 +104,7 @@ export function rank(raw_data, value){
   return data;
 };
 
-function sort(data, value) {
+export function sort(data, value) {
   return data.sort(function(a, b){
     return Number(a[value]) - Number(b[value]);
   }).reverse()

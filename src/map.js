@@ -2,7 +2,7 @@
 // code adapted from example
 // https://bl.ocks.org/shimizu/61e271a44f9fb832b272417c0bc853a5
 import * as d3 from 'd3'
-import {rank, display_rank} from './bar_charts.js'
+import {display_rank} from './bar_charts.js'
 
 
 // json is geography data, data is community data
