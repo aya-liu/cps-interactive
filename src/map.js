@@ -110,5 +110,6 @@ function drawMap(json, data, no_school) {
     };
       
 export function map(value, data, no_school){
-  d3.json("../data/geography.geojson").then(function(json){ return drawMap(json, data, no_school); }) 
+  d3.json(window.location.host.includes('localhost') ? './data/geography.geojson ' : 'https://aya-liu.github.io/cps-interactive/data/geography.geojson ')
+    .then(function(json){ return drawMap(json, data, no_school); }) 
 };
