@@ -64,7 +64,15 @@ function drawMap(json, data, no_school) {
         .on("mouseout", function(d){
           // if there is an area clicked, return to clicked name
           if (d3.selectAll(".area.highlighted").size() !== 0) {
-          d3.select("h2").html(d3.select("#clicked-area").html())
+            var clicked_name = d3.select("#clicked-area").text()
+            var clicked_slug = d3.select(".area.highlighted").attr('id')
+            if (no_school.includes(clicked_slug)) {
+              var html = d3.select("#clicked-area").text() + 
+                       "<span style='color:#43464B'> does not have CPS high schools</span>"
+            } else {
+              var html = d3.select("#clicked-area").text()
+            }
+          d3.select("h2").html(html)
           } else {
           // otherwise reset 
           d3.select("h2").text("")
